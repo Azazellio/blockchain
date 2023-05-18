@@ -34,7 +34,7 @@ public class PropertyOwnershipRule<TBlock> : IRule<TBlock> where TBlock : IPrope
                 }
             }
             // In case this Property hasn't been registered in blockchain
-            throw new ApplicationException("You are trying- to transfer the work of art that has not been yet registered.");
+            throw new ApplicationException("You are trying to transfer the work of art that has not been yet registered.");
         }
     }
 }
