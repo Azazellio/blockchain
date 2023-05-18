@@ -1,0 +1,15 @@
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/bin/Debug/net6.0/HighLevelBlockchain.deps.json
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/bin/Debug/net6.0/HighLevelBlockchain.dll
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/bin/Debug/net6.0/HighLevelBlockchain.pdb
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/bin/Debug/net6.0/BlockchainLib.dll
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/bin/Debug/net6.0/BlockchainLib.pdb
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/obj/Debug/net6.0/HighLevelBlockchain.csproj.AssemblyReference.cache
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/obj/Debug/net6.0/HighLevelBlockchain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/obj/Debug/net6.0/HighLevelBlockchain.AssemblyInfoInputs.cache
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/obj/Debug/net6.0/HighLevelBlockchain.AssemblyInfo.cs
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/obj/Debug/net6.0/HighLevelBlockchain.csproj.CoreCompileInputs.cache
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/obj/Debug/net6.0/HighLevelBlockchain.csproj.CopyComplete
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/obj/Debug/net6.0/HighLevelBlockchain.dll
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/obj/Debug/net6.0/refint/HighLevelBlockchain.dll
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/obj/Debug/net6.0/HighLevelBlockchain.pdb
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/obj/Debug/net6.0/ref/HighLevelBlockchain.dll

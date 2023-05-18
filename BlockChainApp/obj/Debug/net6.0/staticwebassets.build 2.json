@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "2ETGs4HLryktJMYpjGHxo+0A/ye91ffNdGZ+PgTibwg=",
+  "Source": "BlockChainApp",
+  "BasePath": "_content/BlockChainApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

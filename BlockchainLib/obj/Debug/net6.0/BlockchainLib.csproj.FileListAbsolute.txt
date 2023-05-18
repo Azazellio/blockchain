@@ -1,0 +1,12 @@
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/bin/Debug/net6.0/BlockchainLib.deps.json
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/bin/Debug/net6.0/BlockchainLib.dll
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/bin/Debug/net6.0/BlockchainLib.pdb
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/obj/Debug/net6.0/BlockchainLib.csproj.AssemblyReference.cache
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/obj/Debug/net6.0/BlockchainLib.GeneratedMSBuildEditorConfig.editorconfig
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/obj/Debug/net6.0/BlockchainLib.AssemblyInfoInputs.cache
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/obj/Debug/net6.0/BlockchainLib.AssemblyInfo.cs
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/obj/Debug/net6.0/BlockchainLib.csproj.CoreCompileInputs.cache
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/obj/Debug/net6.0/BlockchainLib.dll
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/obj/Debug/net6.0/refint/BlockchainLib.dll
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/obj/Debug/net6.0/BlockchainLib.pdb
+/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/obj/Debug/net6.0/ref/BlockchainLib.dll

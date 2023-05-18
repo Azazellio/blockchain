@@ -1,0 +1,124 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/HighLevelBlockchain.csproj": {}
+  },
+  "projects": {
+    "/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/BlockchainLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/BlockchainLib.csproj",
+        "projectName": "BlockchainLib",
+        "projectPath": "/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/BlockchainLib.csproj",
+        "packagesPath": "/Users/azazellio/.nuget/packages",
+        "outputPath": "/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/azazellio/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Crc32.NET": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/HighLevelBlockchain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/HighLevelBlockchain.csproj",
+        "projectName": "HighLevelBlockchain",
+        "projectPath": "/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/HighLevelBlockchain.csproj",
+        "packagesPath": "/Users/azazellio/.nuget/packages",
+        "outputPath": "/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/HighLevelBlockchain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/azazellio/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/BlockchainLib.csproj": {
+                "projectPath": "/Users/azazellio/Documents/Documents/KPI/Finish Line/diploma/V2/BlockChainApp/BlockchainLib/BlockchainLib.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

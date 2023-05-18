@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockChainApp", "BlockChainApp\BlockChainApp.csproj", "{1A3C7AD7-2881-4E2C-BB10-4D75B84FC580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainLib", "BlockchainLib\BlockchainLib.csproj", "{577DD0DD-337F-4371-A66B-8C6F0E72EB7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighLevelBlockchain", "HighLevelBlockchain\HighLevelBlockchain.csproj", "{2AC32688-4F5D-40FD-B80B-7A7CB278EDCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleBlockChainApp", "ConsoleBlockChainApp\ConsoleBlockChainApp.csproj", "{68A33C56-A43E-4C2F-98E7-72D9CFE2EDBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A3C7AD7-2881-4E2C-BB10-4D75B84FC580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A3C7AD7-2881-4E2C-BB10-4D75B84FC580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A3C7AD7-2881-4E2C-BB10-4D75B84FC580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A3C7AD7-2881-4E2C-BB10-4D75B84FC580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{577DD0DD-337F-4371-A66B-8C6F0E72EB7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{577DD0DD-337F-4371-A66B-8C6F0E72EB7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{577DD0DD-337F-4371-A66B-8C6F0E72EB7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{577DD0DD-337F-4371-A66B-8C6F0E72EB7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AC32688-4F5D-40FD-B80B-7A7CB278EDCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AC32688-4F5D-40FD-B80B-7A7CB278EDCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AC32688-4F5D-40FD-B80B-7A7CB278EDCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AC32688-4F5D-40FD-B80B-7A7CB278EDCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68A33C56-A43E-4C2F-98E7-72D9CFE2EDBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68A33C56-A43E-4C2F-98E7-72D9CFE2EDBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68A33C56-A43E-4C2F-98E7-72D9CFE2EDBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68A33C56-A43E-4C2F-98E7-72D9CFE2EDBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
