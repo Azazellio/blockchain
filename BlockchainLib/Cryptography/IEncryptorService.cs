@@ -2,7 +2,7 @@ namespace BlockchainLib.Cryptography;
 
 public interface IEncryptorService
 {
-    KeyPair GenerateKeys();
-    string Sign(string data, string privateKey);
-    bool VerifySign(string publicKey, string data, string sign);
+    Keys GenerateKeyPair();
+    string SignData(string data, string privateKey);
+    bool VerifySignature(string publicKey, string data, string sign);
 }

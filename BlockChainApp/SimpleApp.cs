@@ -1,15 +1,12 @@
 using System.Text.Json;
-using BlockchainLib.BlockchainServices;
-using BlockchainLib.BlockchainServices.BlockchainBuilder;
 using BlockchainLib.Cryptography;
-using BlockchainLib.Hash;
 using HighLevelBlockchain;
 using HighLevelBlockchain.BlockContracts;
 using HighLevelBlockchain.Rules;
 
-namespace ConsoleBlockChainApp;
+namespace BlockChainApp;
 
-public record PropertyTransaction(string From, string To, string Property);
+public record PropertyTransaction(string From, string To, string Property, DateTime Time);
 public record PropertyTransactionBlock(PropertyTransaction TransactionPayload, string Sign) 
     : ISignedBlock<PropertyTransaction>
         , IPropertyOwnershipBlock
@@ -37,7 +34,7 @@ public class SimpleApp
         _blockchain = blockchain;
     }
     
-    public KeyPair GenerateKeys() => _encryptorService.GenerateKeys();
+    public Keys GenerateKeys() => _encryptorService.GenerateKeyPair();
 
     private void AcceptTransaction(PropertyTransactionBlock transactionBlock)
     {
@@ -45,11 +42,11 @@ public class SimpleApp
         _blockchain.ProcessBlock(block);
     }
     
-    public void PerformTransaction(KeyPair fromKeys, string to, string property)
+    public void PerformTransaction(Keys fromKeys, string to, string property)
     {
-        var transaction = new PropertyTransaction(fromKeys.PublicKey, to, property);
+        var transaction = new PropertyTransaction(fromKeys.Public, to, property, DateTime.Now);
         var transactionString = JsonSerializer.Serialize(transaction);
-        var sign = _encryptorService.Sign(transactionString, fromKeys.PrivateKey);
+        var sign = _encryptorService.SignData(transactionString, fromKeys.Private);
         var transactionBlock = new PropertyTransactionBlock(transaction, sign);
 
         AcceptTransaction(transactionBlock);

@@ -1,10 +1,13 @@
+using BlockChainApp.CustomIndexes;
+using BlockChainApp.CustomIndexes.Abstractions;
 using BlockchainLib.BlockchainServices;
 using BlockchainLib.BlockchainServices.BlockchainBuilder;
 using BlockchainLib.Cryptography;
 using BlockchainLib.Hash;
-using ConsoleBlockChainApp;
 using HighLevelBlockchain;
+using HighLevelBlockchain.Indexes;
 using HighLevelBlockchain.Rules;
+using HighLevelBlockchain.Rules.Abstractions;
 
 namespace BlockChainApp;
 
@@ -19,14 +22,8 @@ public static class RegistrationExtensions
         services.AddTransient<IEncryptorService, RSAEncryptor>();
         
         services.RegisterRules();
+        services.RegisterIndexes();
         
-        // services
-        //     .AddTransient<IGenericBlockchain<PropertyTransactionBlock>>(_ 
-        //         =>
-        //     {
-        //         var builder = 
-        //         return new GenericBlockchain<PropertyTransactionBlock>(IBlockchainBuilder builder,);
-        //     });
         services
             .AddTransient<IGenericBlockchain<PropertyTransactionBlock>, GenericBlockchain<PropertyTransactionBlock>>();
 
@@ -42,6 +39,23 @@ public static class RegistrationExtensions
         {
             var rules = provider.GetServices<IRule<PropertyTransactionBlock>>();
             return rules.ToArray();
+        });
+    }
+
+    private static void RegisterIndexes(this IServiceCollection services)
+    {
+        services.AddSingleton<IIndexBuilder<PropertyTransactionBlock>>(_ => (IIndexBuilder<PropertyTransactionBlock>)_.GetRequiredService<IPropertyIndex>());
+        services.AddSingleton<IIndexBuilder<PropertyTransactionBlock>>(_ => (IIndexBuilder<PropertyTransactionBlock>)_.GetRequiredService<IUserIndexFrom>());
+        services.AddSingleton<IIndexBuilder<PropertyTransactionBlock>>(_ => (IIndexBuilder<PropertyTransactionBlock>)_.GetRequiredService<IUserIndexTo>());
+
+        services.AddSingleton<IPropertyIndex, PropertyIndex>();
+        services.AddSingleton<IUserIndexFrom, UserIndexFrom>();
+        services.AddSingleton<IUserIndexTo, UserIndexTo>();
+
+        services.AddTransient<IIndexBuilder<PropertyTransactionBlock>[]>(provider =>
+        {
+            var indexes = provider.GetServices<IIndexBuilder<PropertyTransactionBlock>>();
+            return indexes.ToArray();
         });
     }
 }

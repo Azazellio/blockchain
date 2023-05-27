@@ -1,5 +1,6 @@
 using System.Text.Json;
 using BlockchainLib.Cryptography;
+using HighLevelBlockchain.Rules.Abstractions;
 
 namespace HighLevelBlockchain.Rules;
 
@@ -22,7 +23,7 @@ public class SignRule<TBlock, TSignedBlockPayload> : IRule<TBlock> where TBlock 
     {
         var signed = newBlock.Data;
         var dataThatShouldBeSigned = JsonSerializer.Serialize(newBlock.Data.Data);
-        if (!_encryptor.VerifySign(signed.PublicKey, dataThatShouldBeSigned, signed.Sign))
+        if (!_encryptor.VerifySignature(signed.PublicKey, dataThatShouldBeSigned, signed.Sign))
             throw new ApplicationException("Block sign is incorrect.");
     }
 }

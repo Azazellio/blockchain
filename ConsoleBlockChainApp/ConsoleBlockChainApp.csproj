@@ -15,12 +15,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\BlockChainApp\BlockChainApp.csproj" />
       <ProjectReference Include="..\BlockchainLib\BlockchainLib.csproj" />
       <ProjectReference Include="..\HighLevelBlockchain\HighLevelBlockchain.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="CustomRules\" />
     </ItemGroup>
 
 </Project>

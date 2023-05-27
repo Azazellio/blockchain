@@ -1,4 +1,5 @@
 using HighLevelBlockchain.BlockContracts;
+using HighLevelBlockchain.Rules.Abstractions;
 
 namespace HighLevelBlockchain.Rules;
 

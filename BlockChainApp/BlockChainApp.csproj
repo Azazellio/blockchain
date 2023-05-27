@@ -19,7 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ConsoleBlockChainApp\ConsoleBlockChainApp.csproj" />
+      <ProjectReference Include="..\HighLevelBlockchain\HighLevelBlockchain.csproj" />
     </ItemGroup>
 
 </Project>

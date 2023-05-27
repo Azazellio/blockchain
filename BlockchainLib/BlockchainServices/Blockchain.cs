@@ -19,7 +19,7 @@ public class Blockchain : IBlockchain
         var tailHash = _blocks.LastOrDefault();
         if (block.ParentHash == tailHash?.Hash)
         {
-            var expectedBlockHash = block.GetBlockHash(_hashFunction);
+            var expectedBlockHash = block.GetHash(_hashFunction);
             
             if (expectedBlockHash == block.Hash)
                 _blocks.AddLast(block);

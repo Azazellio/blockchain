@@ -6,7 +6,7 @@ namespace BlockchainLib.Cryptography;
 
 public class RSACrossPlatformEncryptor : IEncryptorService
 {
-    public KeyPair GenerateKeys()
+    public Keys GenerateKeyPair()
     {
         using var rsa = RSA.Create();
         var @private = rsa.ExportParameters(true);
@@ -14,10 +14,10 @@ public class RSACrossPlatformEncryptor : IEncryptorService
         var publicKey = Convert.ToBase64String(GetArray(@public));
         var privateKey = Convert.ToBase64String(GetArray(@private));
 
-        return new KeyPair(publicKey, privateKey);
+        return new Keys(publicKey, privateKey);
     }
 
-    public string Sign(string data, string privateKey)
+    public string SignData(string data, string privateKey)
     {
         using var provider = GetCryptoProvider(privateKey);
         var bytes = Encoding.UTF8.GetBytes(data);
@@ -25,7 +25,7 @@ public class RSACrossPlatformEncryptor : IEncryptorService
         return Convert.ToBase64String(signedHash);
     }
 
-    public bool VerifySign(string publicKey, string data, string sign)
+    public bool VerifySignature(string publicKey, string data, string sign)
     {
         using var provider = GetVerificationProvider(publicKey);
         var signBytes = Convert.FromBase64String(sign);

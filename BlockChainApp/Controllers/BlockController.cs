@@ -1,5 +1,5 @@
+using BlockChainApp.CustomIndexes.Abstractions;
 using BlockchainLib.Cryptography;
-using ConsoleBlockChainApp;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlockChainApp.Controllers
@@ -10,11 +10,16 @@ namespace BlockChainApp.Controllers
     {
         private readonly SimpleApp _app;
         private readonly ILogger<BlockController> _logger;
+        private readonly IPropertyIndex _propertyIndex;
 
-        public BlockController(SimpleApp app, ILogger<BlockController> logger)
+        public BlockController(
+            SimpleApp app,
+            ILogger<BlockController> logger,
+            IPropertyIndex propertyIndex)
         {
             _app = app;
             _logger = logger;
+            _propertyIndex = propertyIndex;
         }
 
         [HttpPost("registerProperty")]
@@ -22,8 +27,8 @@ namespace BlockChainApp.Controllers
         {
             try
             {
-                var keys = new KeyPair(registrationRequest.FromKeys.PublicKey, registrationRequest.FromKeys.PrivateKey);
-                _app.PerformTransaction(keys, registrationRequest.To, registrationRequest.Property);
+                var keys = new Keys(registrationRequest.FromKeys.PublicKey, registrationRequest.FromKeys.PrivateKey);
+                _app.PerformTransaction(keys, registrationRequest.FromKeys.PublicKey, registrationRequest.Property);
             }
             catch (ApplicationException e)
             {
@@ -39,7 +44,7 @@ namespace BlockChainApp.Controllers
         {
             try
             {
-                var keys = new KeyPair(transferRequest.FromKeys.PublicKey, transferRequest.FromKeys.PrivateKey);
+                var keys = new Keys(transferRequest.FromKeys.PublicKey, transferRequest.FromKeys.PrivateKey);
                 _app.PerformTransaction(keys, transferRequest.To, transferRequest.Property);
             }
             catch (ApplicationException e)
@@ -50,6 +55,12 @@ namespace BlockChainApp.Controllers
         
             return ActionResponse.OkResponse(null);
         }
+        
+        [HttpPost("propertyHistory")]
+        public ActionResponse PropertyHistory([FromBody]PropertyHistoryCheckModel model)
+        {
+            return ActionResponse.OkResponse(_propertyIndex.GetByKey(model.PropertyHash));
+        }
     }
 
     public class PropertyTransferModel
@@ -59,16 +70,21 @@ namespace BlockChainApp.Controllers
         public string Property { get; init; }
     }
 
-    public class PropertyRegistrationModel 
+    public class PropertyRegistrationModel
     {
-        public KeyPairDto FromKeys { get; init; }
-        public string To => FromKeys.PublicKey;
-        public string Property { get; init; }
+        public KeyPairDto FromKeys { get; set; }
+        // public string To => FromKeys.PublicKey;
+        public string Property { get; set; }
     }
 
     public class KeyPairDto
     {
         public string PublicKey { get; set; }
         public string PrivateKey { get; set; }
+    }
+
+    public class PropertyHistoryCheckModel
+    {
+        public string PropertyHash { get; set; }
     }
 }

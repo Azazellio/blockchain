@@ -1,4 +1,4 @@
-namespace HighLevelBlockchain.Rules;
+namespace HighLevelBlockchain.Rules.Abstractions;
 
 public interface IRule<T>
 {
