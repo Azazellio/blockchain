@@ -13,7 +13,7 @@ namespace BlockChainApp.Controllers
         private readonly IUserIndexTo _indexTo;
         
         public UserController(
-            SimpleApp app,
+            ISimpleApp app,
             IUserIndexFrom indexFrom, 
             IUserIndexTo indexTo)
         {
