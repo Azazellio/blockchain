@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighLevelBlockchain", "High
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleBlockChainApp", "ConsoleBlockChainApp\ConsoleBlockChainApp.csproj", "{68A33C56-A43E-4C2F-98E7-72D9CFE2EDBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainAppTests", "BlockchainAppTests\BlockchainAppTests.csproj", "{14ACDEE7-BDED-4B0E-A6A9-F15C36F50371}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{68A33C56-A43E-4C2F-98E7-72D9CFE2EDBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68A33C56-A43E-4C2F-98E7-72D9CFE2EDBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68A33C56-A43E-4C2F-98E7-72D9CFE2EDBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14ACDEE7-BDED-4B0E-A6A9-F15C36F50371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14ACDEE7-BDED-4B0E-A6A9-F15C36F50371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14ACDEE7-BDED-4B0E-A6A9-F15C36F50371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14ACDEE7-BDED-4B0E-A6A9-F15C36F50371}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

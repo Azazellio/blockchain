@@ -27,7 +27,7 @@ public static class RegistrationExtensions
         services
             .AddTransient<IGenericBlockchain<PropertyTransactionBlock>, GenericBlockchain<PropertyTransactionBlock>>();
 
-        services.AddTransient<SimpleApp>();
+        services.AddTransient<ISimpleApp, SimpleApp>();
     }
 
     private static void RegisterRules(this IServiceCollection services)

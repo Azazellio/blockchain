@@ -8,7 +8,7 @@ namespace BlockChainApp.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly SimpleApp _app;
+        private readonly ISimpleApp _app;
         private readonly IUserIndexFrom _indexFrom;
         private readonly IUserIndexTo _indexTo;
         

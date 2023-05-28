@@ -23,7 +23,13 @@ public record PropertyTransactionBlock(PropertyTransaction TransactionPayload, s
     string IPropertyOwnershipBlock.Property => TransactionPayload.Property;
 }
 
-public class SimpleApp
+public interface ISimpleApp
+{
+    public Keys GenerateKeys();
+    public void PerformTransaction(Keys fromKeys, string to, string property);
+}
+
+public class SimpleApp : ISimpleApp
 {
     private readonly IGenericBlockchain<PropertyTransactionBlock> _blockchain;
     private readonly IEncryptorService _encryptorService;

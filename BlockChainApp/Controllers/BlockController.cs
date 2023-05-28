@@ -8,12 +8,12 @@ namespace BlockChainApp.Controllers
     [Route("api/[controller]")]
     public class BlockController : ControllerBase
     {
-        private readonly SimpleApp _app;
+        private readonly ISimpleApp _app;
         private readonly ILogger<BlockController> _logger;
         private readonly IPropertyIndex _propertyIndex;
 
         public BlockController(
-            SimpleApp app,
+            ISimpleApp app,
             ILogger<BlockController> logger,
             IPropertyIndex propertyIndex)
         {
