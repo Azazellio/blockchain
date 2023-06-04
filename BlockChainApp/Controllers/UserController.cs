@@ -23,14 +23,14 @@ namespace BlockChainApp.Controllers
         }
         
         [HttpGet("new")]
-        public ActionResponse New()
+        public MyActionResponse New()
         {
             var keys = _app.GenerateKeys();
-            return ActionResponse.OkResponse(new UserDto{ Public = keys.Public, Private = keys.Private });
+            return MyActionResponse.OkResponse(new UserDto{ Public = keys.Public, Private = keys.Private });
         }
         
         [HttpGet("getUserHistory/{publicKey}")]
-        public ActionResponse GetHistory(string publicKey)
+        public MyActionResponse GetHistory(string publicKey)
         {
             var fromHistory = _indexFrom.GetByKey(publicKey);
             var toHistory = _indexTo.GetByKey(publicKey);
@@ -46,7 +46,7 @@ namespace BlockChainApp.Controllers
                         Sign = x.Sign
                     });
             
-            return ActionResponse.OkResponse(wholeHistory);
+            return MyActionResponse.OkResponse(wholeHistory);
         }
     }
 }

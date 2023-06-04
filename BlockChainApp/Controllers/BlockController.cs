@@ -1,3 +1,4 @@
+using System.Text.Json;
 using BlockChainApp.CustomIndexes.Abstractions;
 using BlockchainLib.Cryptography;
 using Microsoft.AspNetCore.Mvc;
@@ -11,19 +12,22 @@ namespace BlockChainApp.Controllers
         private readonly ISimpleApp _app;
         private readonly ILogger<BlockController> _logger;
         private readonly IPropertyIndex _propertyIndex;
+        private readonly IEncryptorService _encryptorService;
 
         public BlockController(
             ISimpleApp app,
             ILogger<BlockController> logger,
-            IPropertyIndex propertyIndex)
+            IPropertyIndex propertyIndex, 
+            IEncryptorService encryptorService)
         {
             _app = app;
             _logger = logger;
             _propertyIndex = propertyIndex;
+            _encryptorService = encryptorService;
         }
 
         [HttpPost("registerProperty")]
-        public ActionResponse Register([FromBody] PropertyRegistrationModel registrationRequest)
+        public MyActionResponse Register([FromBody] PropertyRegistrationModel registrationRequest)
         {
             try
             {
@@ -33,14 +37,14 @@ namespace BlockChainApp.Controllers
             catch (ApplicationException e)
             {
                 _logger.LogError(e.Message);
-                return ActionResponse.ErrorResponse(e.Message);
+                return MyActionResponse.ErrorResponse(e.Message);
             }
         
-            return ActionResponse.OkResponse(null);
+            return MyActionResponse.OkResponse(null);
         }
         
         [HttpPost("transferProperty")]
-        public ActionResponse Transfer([FromBody] PropertyTransferModel transferRequest)
+        public MyActionResponse Transfer([FromBody] PropertyTransferModel transferRequest)
         {
             try
             {
@@ -50,16 +54,35 @@ namespace BlockChainApp.Controllers
             catch (ApplicationException e)
             {
                 _logger.LogError(e.Message);
-                return ActionResponse.ErrorResponse(e.Message);
+                return MyActionResponse.ErrorResponse(e.Message);
             }
         
-            return ActionResponse.OkResponse(null);
+            return MyActionResponse.OkResponse(null);
         }
         
-        [HttpPost("propertyHistory")]
-        public ActionResponse PropertyHistory([FromBody]PropertyHistoryCheckModel model)
+        [HttpPost("property/history")]
+        public MyActionResponse PropertyHistory([FromBody]PropertyHistoryCheckModel model)
         {
-            return ActionResponse.OkResponse(_propertyIndex.GetByKey(model.PropertyHash));
+            return MyActionResponse.OkResponse(_propertyIndex.GetByKey(model.PropertyHash));
+        }
+        
+        [HttpGet("blockchainHistory/{amountOfBlocks}")]
+        public MyActionResponse BlockchainHistory(int amountOfBlocks)
+        {
+            return MyActionResponse.OkResponse(_app.GetBlocks(amountOfBlocks));
+        }
+        
+        [HttpPost("property/checkOwnership")]
+        public MyActionResponse CheckOwnership([FromBody]PropertyOwnershipCheckModel model)
+        {
+            var block = _propertyIndex.GetByKey(model.PropertyHash).LastOrDefault();
+            
+            if (block is null)
+                return MyActionResponse.ErrorResponse("Property was not found");
+            
+            var result =
+                _encryptorService.VerifySignature(model.OwnerPublicKey, JsonSerializer.Serialize(block.TransactionPayload), block.Sign);
+            return MyActionResponse.OkResponse(new { IsOwnershipConfirmed = result});
         }
     }
 
@@ -85,6 +108,12 @@ namespace BlockChainApp.Controllers
 
     public class PropertyHistoryCheckModel
     {
+        public string PropertyHash { get; set; }
+    }
+
+    public class PropertyOwnershipCheckModel
+    {
+        public string OwnerPublicKey { get; set; }
         public string PropertyHash { get; set; }
     }
 }

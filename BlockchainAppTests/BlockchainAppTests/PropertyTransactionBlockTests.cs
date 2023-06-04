@@ -1,5 +1,6 @@
 using BlockChainApp;
 using HighLevelBlockchain.BlockContracts;
+using HighLevelBlockchain;
 using HighLevelBlockchain.Rules;
 
 namespace BlockchainAppTests.BlockchainAppTests;

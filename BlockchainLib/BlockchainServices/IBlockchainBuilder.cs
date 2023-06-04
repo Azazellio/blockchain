@@ -1,4 +1,4 @@
-namespace BlockchainLib.BlockchainServices.BlockchainBuilder;
+namespace BlockchainLib.BlockchainServices;
 
 public interface IBlockchainBuilder
 {

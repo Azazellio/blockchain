@@ -1,3 +1,4 @@
+using BlockchainLib.BlockchainServices.BlockchainBuilder;
 using BlockchainLib.Hash;
 using Moq;
 
@@ -7,7 +8,7 @@ namespace BlockchainAppTests.BlockchainLibTests;
 public class BlockchainBuilderTests_BuildBlock
 {
     private Mock<IHashFunction> _mockHashFunction;
-    private BlockchainLib.BlockchainServices.BlockchainBuilder.BlockchainBuilder _blockchainBuilder;
+    private BlockchainBuilder _blockchainBuilder;
 
     private const string _lastBlockHash = "lastBlockHash";
     private const string _mockHash = "mockHash";
@@ -20,7 +21,7 @@ public class BlockchainBuilderTests_BuildBlock
         _mockHashFunction = new Mock<IHashFunction>();
         _mockHashFunction.Setup(hashFunction => hashFunction.Hash(It.IsAny<string>())).Returns(_mockHash);
 
-        _blockchainBuilder = new BlockchainLib.BlockchainServices.BlockchainBuilder.BlockchainBuilder(_mockHashFunction.Object, _lastBlockHash);
+        _blockchainBuilder = new BlockchainBuilder(_mockHashFunction.Object, _lastBlockHash);
     }
 
     [Test]

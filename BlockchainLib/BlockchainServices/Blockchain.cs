@@ -29,6 +29,22 @@ public class Blockchain : IBlockchain
         else
             throw new ApplicationException($"{block.ParentHash} is not following the current block {tailHash}");
     }
+
+    public IEnumerable<Block> GetBlocks(int amountOfBlocks)
+    {
+        if (_blocks == null)
+            throw new ArgumentNullException(nameof(_blocks));
+
+        if (amountOfBlocks <= 0)
+            yield break;
+
+        var node = _blocks.Last;
+        for (int i = 0; i < amountOfBlocks && node != null; i++)
+        {
+            yield return node.Value;
+            node = node.Previous;
+        }
+    }
     public IEnumerator<Block> GetEnumerator() => _blocks.GetEnumerator();
 
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

@@ -19,7 +19,7 @@ public class PropertyOwnershipRule<TBlock> : IRule<TBlock> where TBlock : IPrope
             // Verify that nobody else has registered this Property (uniqueness)
             if (builtBlocks.Any(b => b.Data.Property == block.Property))
                 throw new ApplicationException(
-                    "You are trying to register the work of art that is already registered.");
+                    "You are trying to register property that is already registered.");
         }
         else
         {
@@ -31,11 +31,11 @@ public class PropertyOwnershipRule<TBlock> : IRule<TBlock> where TBlock : IPrope
                     if (block.From == b.Data.To)
                         return;
                     throw new ApplicationException(
-                        "You are trying to transfer the work of art that you are not owning.");
+                        "You are trying to transfer property that you are not owning.");
                 }
             }
             // In case this Property hasn't been registered in blockchain
-            throw new ApplicationException("You are trying to transfer the work of art that has not been yet registered.");
+            throw new ApplicationException("You are trying to transfer property that has not been yet registered.");
         }
     }
 }

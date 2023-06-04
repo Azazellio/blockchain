@@ -1,6 +1,5 @@
 using BlockchainLib;
 using BlockchainLib.BlockchainServices;
-using BlockchainLib.BlockchainServices.BlockchainBuilder;
 using HighLevelBlockchain;
 using HighLevelBlockchain.Indexes;
 using HighLevelBlockchain.Rules.Abstractions;

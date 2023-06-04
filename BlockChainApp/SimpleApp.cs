@@ -27,6 +27,7 @@ public interface ISimpleApp
 {
     public Keys GenerateKeys();
     public void PerformTransaction(Keys fromKeys, string to, string property);
+    public IEnumerable<PropertyTransactionBlock> GetBlocks(int amountOfBlocks);
 }
 
 public class SimpleApp : ISimpleApp
@@ -56,5 +57,12 @@ public class SimpleApp : ISimpleApp
         var transactionBlock = new PropertyTransactionBlock(transaction, sign);
 
         AcceptTransaction(transactionBlock);
+    }
+
+    public IEnumerable<PropertyTransactionBlock> GetBlocks(int amountOfBlocks)
+    {
+        return _blockchain
+            .GetBlocks(amountOfBlocks)
+            .Select(x => x.Data);
     }
 }

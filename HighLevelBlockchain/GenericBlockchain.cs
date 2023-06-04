@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Text.Json;
 using BlockchainLib.BlockchainServices;
-using BlockchainLib.BlockchainServices.BlockchainBuilder;
 using HighLevelBlockchain.Indexes;
 using HighLevelBlockchain.Rules.Abstractions;
 
 namespace HighLevelBlockchain;
 
-public class GenericBlockchain<T> : IEnumerable<GenericBlock<T>>, IGenericBlockchain<T>
+public class GenericBlockchain<T> : IGenericBlockchain<T>
 {
     private readonly IBlockchainBuilder _blockchainBuilder;
     private readonly IBlockchain _blockchain;
@@ -69,5 +68,14 @@ public class GenericBlockchain<T> : IEnumerable<GenericBlock<T>>, IGenericBlockc
     }
 
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-    
+
+    public IEnumerable<GenericBlock<T>> GetBlocks(int amountOfBlocks)
+    {
+        return _blockchain.GetBlocks(amountOfBlocks)
+            .Select(x => new GenericBlock<T>(
+                x.Hash,
+                x.ParentHash,
+                x.Data,
+                JsonSerializer.Deserialize<T>(x.Data)!));
+    }
 }

@@ -1,3 +1,4 @@
+using BlockchainLib.BlockchainServices.BlockchainBuilder;
 using BlockchainLib.Hash;
 using Moq;
 
@@ -6,7 +7,7 @@ namespace BlockchainAppTests.BlockchainLibTests;
 [TestFixture]
 public class BlockchainBuilderTests_ProcessBlock
 {
-    private BlockchainLib.BlockchainServices.BlockchainBuilder.BlockchainBuilder _blockchainBuilder;
+    private BlockchainBuilder _blockchainBuilder;
     private Mock<IHashFunction> _hashFunctionMock;
     private const string initialBlockData = "Genesis Block";
     private const string newBlockData = "New Block";
@@ -20,7 +21,7 @@ public class BlockchainBuilderTests_ProcessBlock
         _hashFunctionMock.Setup(h => h.Hash(initialBlockData)).Returns(initialBlockHash);
         _hashFunctionMock.Setup(h => h.Hash(newBlockData)).Returns(newBlockHash);
         
-        _blockchainBuilder = new BlockchainLib.BlockchainServices.BlockchainBuilder.BlockchainBuilder(_hashFunctionMock.Object, null);
+        _blockchainBuilder = new BlockchainBuilder(_hashFunctionMock.Object, null);
     }
 
     [Test]

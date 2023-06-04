@@ -6,7 +6,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.RegisterDependencies();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .ConfigureApiBehaviorOptions(options =>
+{
+    options.InvalidModelStateResponseFactory = context =>
+    {
+        var errors = context.ModelState
+            .Where(e => e.Value.Errors.Count > 0)
+            .ToDictionary(e => e.Key, e => e.Value.Errors.Select(e => e.ErrorMessage).ToArray());
+
+        return MyActionResponse.ValidationErrorResponse(errors);
+    };
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
