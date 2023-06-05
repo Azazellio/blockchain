@@ -7,6 +7,7 @@ public class Blockchain : IBlockchain
 {
     private readonly LinkedList<Block> _blocks;
     private readonly IHashFunction _hashFunction;
+    private readonly object _addBlockLock = new object();
     
     public Blockchain(IHashFunction hashFunction)
     {
@@ -16,18 +17,21 @@ public class Blockchain : IBlockchain
 
     public void AddBlock(Block block)
     {
-        var tailHash = _blocks.LastOrDefault();
-        if (block.ParentHash == tailHash?.Hash)
+        lock (_addBlockLock)
         {
-            var expectedBlockHash = block.GetHash(_hashFunction);
-            
-            if (expectedBlockHash == block.Hash)
-                _blocks.AddLast(block);
+            var tailHash = _blocks.LastOrDefault();
+            if (block.ParentHash == tailHash?.Hash)
+            {
+                var expectedBlockHash = block.GetHash(_hashFunction);
+                
+                if (expectedBlockHash == block.Hash)
+                    _blocks.AddLast(block);
+                else
+                    throw new ApplicationException($"Block {block} has invalid hash. It should be {expectedBlockHash}.");
+            }
             else
-                throw new ApplicationException($"Block {block} has invalid hash. It should be {expectedBlockHash}.");
+                throw new ApplicationException($"{block.ParentHash} is not following the current block {tailHash}");
         }
-        else
-            throw new ApplicationException($"{block.ParentHash} is not following the current block {tailHash}");
     }
 
     public IEnumerable<Block> GetBlocks(int amountOfBlocks)
